@@ -1,4 +1,4 @@
-const x = '10'
+const x = 10
 
 // checkar se x é um número
 
