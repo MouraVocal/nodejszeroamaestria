@@ -1,0 +1,143 @@
+Comandos no terminal:
+npm init -y
+npm install express
+npm install --save-dev nodemon
+
+estrutura do projeto:
+index.js
+
+  |->/node_modules
+
+  |->/public
+    |->css
+      |->style.css
+
+  |->/templates
+    |->index.html
+    |->user.html
+    |->404.html
+
+  |->/user
+    |->index.js
+
+package.json
+package-lock.json
+
+---- Arquivo ./package.json ----
+{
+  "name": "11_tarefa_03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
+
+---- Arquivo ./index.js ----
+const express = require('express')
+const path = require('path')
+
+const app = express()
+const basePath = path.join(__dirname, 'templates')
+const port = 5000
+
+const pageNotFound = (req, res, next) => {
+  res.status(404).sendFile(`${basePath}/404.html`)
+}
+
+const user = require('./user')
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use('./user', user)
+app.use(express.static('public'))
+app.use('/user', user)
+
+app.get('/', (req, res, next) => {
+  res.sendFile(`${basePath}/index.html`)
+})
+
+app.use(pageNotFound)
+
+app.listen(port, () => console.log(`🍺 Servidor iniciado na porta ${port}`))
+
+
+---- Arquivo /user/index.js ----
+const express = require('express')
+const path = require('path')
+
+const router = express.Router()
+
+const basePath = path.join(__dirname, '../templates')
+
+router.get('/:id', (req, res) => {
+  const { id } = req.params
+  res.sendFile(`${basePath}/user.html`)
+  console.log(`Buscando usuário com id: ${id}`)
+})
+
+module.exports = router
+
+---- Arquivo ./public/css/style.css ----
+body {
+  background-color: #ffee00;
+  color: #000;
+  font-size: large;
+}
+
+---- Arquivo ./templates/404.html ----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>404</title>
+</head>
+<body>
+  <h1>Página não encontrada</h1>
+  <a href="/">Clique aqui para retornar ao Início</a>
+</body>
+</html>
+
+---- Arquivo ./templates/index.html ----
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Home</title>
+</head>
+<body>
+  <h1>Home(r)</h1>
+</body>
+</html>
+
+---- Arquivo ./templates/user.html -----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User</title>
+</head>
+<body>
+  <h1>Carregando dados do usuário...</h1>
+</body>
+</html>
