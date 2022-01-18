@@ -1,0 +1,9 @@
+<h1>Detalhes do produto</h1>
+{{#with chosenProduct}}
+  <h2>{{ name }}</h2>
+  <h3>Preço: {{ price }}</h3>
+  <p>Descrição: {{ desc }}</p>
+  <p>Tags: {{#each tags }}{{ this }}, {{/each}}</p>
+{{/with}}
+
+<a href="/">Voltar ao início</a>

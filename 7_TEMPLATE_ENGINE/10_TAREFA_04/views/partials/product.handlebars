@@ -1,0 +1,4 @@
+<a href="/products/{{ id }}"><h2>{{ this.name }}</h2></a>
+<h3>Preço: {{ this.price }}</h3>
+<p>Descrição: {{ this.desc }}</p>
+<p>Tags: {{#each this.tags }}{{ this }}, {{/each}}</p>
