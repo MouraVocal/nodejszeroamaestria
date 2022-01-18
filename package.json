@@ -1,0 +1,21 @@
+{
+  "name": "udemy---matheus-batisti-hora-de-codar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "deleteNodeModules.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deletenodemodules": "node deleteNodeModules.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MouraVocal/nodejszeroamaestria.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MouraVocal/nodejszeroamaestria/issues"
+  },
+  "homepage": "https://github.com/MouraVocal/nodejszeroamaestria#readme"
+}

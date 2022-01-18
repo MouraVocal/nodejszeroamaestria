@@ -1,0 +1,8 @@
+---- CHALK ----
+para continuar com suporte ao require instalar na versão:
+npm install chalk@4.1.2
+
+---- HANDLEBARS ----
+trocar app.engine('handlebars', exphbs())
+por
+app.engine('handlebars', exphbs.engine())

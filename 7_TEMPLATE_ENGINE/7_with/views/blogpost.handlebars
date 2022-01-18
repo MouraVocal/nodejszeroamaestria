@@ -1,0 +1,12 @@
+{{#with post}}
+  <h1>{{ title }}</h1>
+  <p>{{ category }}</p>
+  <p>{{ body }}</p>
+  <p>Número de comentários: {{ comments }}</p>
+  <h3>Tags</h3>
+  <p>
+    {{#each tags}}
+      {{ this }} 
+    {{/each}}
+  </p>
+{{/with}}
