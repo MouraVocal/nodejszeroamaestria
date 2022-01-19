@@ -1,0 +1,10 @@
+{{#with bookData}}
+  <h1>Edite o seu livro:</h1>
+  <form action="" method="post" class="form">
+    <label for="title">Título</label>
+      <input type="text" name="title" id="title" class="form-control" value="{{ title }}">
+    <label for="pageqtd">Quantidade de páginas</label>
+      <input type="text" name="pageqtd" id="pageqtd" class="form-control" value="{{ pageqtd }}">
+    <input type="submit" value="Cadastrar">
+  </form>
+{{/with}}

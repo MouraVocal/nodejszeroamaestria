@@ -1,0 +1,11 @@
+{{#with this}}
+  <div class="container">
+    <div class="bookdatacontainer">
+      <a href="/book/{{ id }}"><h2 class="booktitle">#{{ id }} - {{ this.title }}</h2></a>
+      <p class="bookpages">Quantidade de páginas: {{ this.pageqtd }}</p>
+    </div>
+    <form action="/book/delete/{{ id }}" method="post">
+      <input type="submit" value="Deletar">
+    </form>
+  </div>
+{{/with}}

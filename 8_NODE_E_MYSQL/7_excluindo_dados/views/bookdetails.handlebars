@@ -1,0 +1,7 @@
+{{#with bookDetails}}
+  <div class="bookdetailscontainer">
+    <h1 class="bookdetailstitle">{{ title }}</h1>
+    <p class="bookdetailspageqtd">Este livro possui {{ pageqtd }} páginas.</p>
+  </div>
+  <a href="/book/edit/{{ id }}" class="editlink">Editar</a>
+{{/with}}
