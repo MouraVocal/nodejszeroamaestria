@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Sistema de cadastro usando Sequelize</h1>
+  <h2>Clientes cadastrados:</h2>
+  {{#each users}}
+    <div class="card mb-3">
+      <div class="card-body d-flex justify-content-between">
+        <div>
+          <h3>{{this.name}}</h3>
+          <p>{{this.occupation}}</p>
+          <a href="/users/{{this.id}}" class="card-link">Ver detalhes</a>
+          <a href="/users/edit/{{this.id}}" class="card-link">Editar</a>
+        </div>
+        <div>
+          <form action="/users/delete/{{this.id}}" class="form" method="post">
+            <button type="submit" class="btn btn-danger mt-3">Deletar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>

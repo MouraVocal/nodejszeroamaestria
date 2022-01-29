@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Sistema de cadastro usando Sequelize</h1>
+  <h2>Clientes cadastrados:</h2>
+  {{#each users}}
+    <div class="card mb-3">
+      <div class="card-body">
+        <h3>{{this.name}}</h3>
+        <p>{{this.occupation}}</p>
+        <a href="/users/{{this.id}}">Ver detalhes</a>
+      </div>
+    </div>
+  {{/each}}
+</div>

@@ -1,0 +1,26 @@
+{{#with user}}
+  <div class="container form-control m-3">
+    <h1>Editando usuário: {{name}}</h1>
+    <form action="/users/update" method="post">
+      <input type="hidden" name="id" value="{{id}}">
+      <div class="form-floating mb-3">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Digite o nome do usuário" value="{{name}}">
+        <label for="name">Nome</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" name="occupation" id="occupation" placeholder="Digite a profissão do usuário" value="{{occupation}}">
+        <label for="occupation">Profissão</label>
+      </div>
+      <div class="form-check mb-3">
+        {{#if newsletter}}
+          <input type="checkbox" class="form-check-input mb-3" name="newsletter" id="newsletter" checked>
+          <label class="form-check-label" for="newsletter">Enviar promocões?</label>
+        {{else}}
+          <input type="checkbox" class="form-check-input mb-3" name="newsletter" id="newsletter">
+          <label class="form-check-label" for="newsletter">Enviar promocões?</label>
+        {{/if}}
+      </div>
+      <input type="submit" class="btn btn-primary" value="Atualizar">
+    </form>
+  </div>
+{{/with}}
