@@ -1,0 +1,16 @@
+<h1>Editar tarefa</h1>
+{{#with task}}
+  <div class="form-container">
+    <form action="/tasks/update" method="post">
+      <input type="hidden" name="id" value="{{id}}">
+      <div class="input-container">
+        <label for="title">Título</label>
+        <input type="text" name="title" id="title" placeholder="Título da tarefa" value="{{ title }}">
+      </div>
+      <div class="input-container">
+        <textarea name="description" id="description" placeholder="Descreva sua tarefa">{{ description }}</textarea>
+      </div>
+      <input class="btn" type="submit" value="ATUALIZAR">
+    </form>
+  </div>
+{{/with}}

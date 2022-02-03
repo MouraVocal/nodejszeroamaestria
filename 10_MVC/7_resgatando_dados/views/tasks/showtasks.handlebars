@@ -1,0 +1,21 @@
+<h1>Tarefas Cadastradas</h1>
+<ul>
+  {{#each tasks}}
+    <li>
+      <div class="task-container">
+        <a href="#">{{this.title}}</a>
+        <div class="actions-container">
+          <a href="#">
+            <i class="bi bi-check-lg"></i>
+          </a>
+          <a href="#">
+            <i class="bi bi-pencil-square"></i>
+          </a>
+          <a href="#">
+            <i class="bi bi-x-lg"></i>
+          </a>
+        </div>
+      </div>
+    </li>
+  {{/each}}
+</ul>
